@@ -4,18 +4,18 @@
     if (data.selectedSkin !== "skin_cocoa.js") {
       return;
     }
-  
+    
     // selectedFontSize 값을 읽어옴 (없으면 기본 14px)
     chrome.storage.sync.get(["selectedFontSize"], function(fontData) {
       const fs = fontData.selectedFontSize || 14;
       const STYLE_ID = 'skinStyle';
-  
+
       // 스타일 태그를 삽입하는 함수 (폰트 크기 fs 적용)
       function injectStyle(root) {
         if (!root) return;
         const existing = root.getElementById(STYLE_ID);
         if (existing) return; // 이미 있으면 재삽입하지 않음
-  
+
         const styleEl = document.createElement('style');
         styleEl.id = STYLE_ID;
         styleEl.textContent = `
@@ -39,7 +39,11 @@
           }
           /* 둥근 말풍선 내부의 <em> 태그 중, 클래스에 "text-white/50"이 포함된 경우 회색 적용 */
           .rounded-r-xl.rounded-bl-xl.bg-gray-sub1 em[class*="text-white/50"] {
-            color: gray !important;
+            color: #B3B3B3 !important;
+          }
+
+          .rounded-l-xl.rounded-br-xl.bg-primary-300 em[class*="text-white/50"] {
+            color: #B3B3B3 !important;
           }
   
           /* nav 내부 텍스트: 강제로 검정색 적용 */
@@ -89,7 +93,7 @@
         `;
         (root.head || root.documentElement).appendChild(styleEl);
       }
-  
+
       // 지정한 root와 내부의 모든 Shadow DOM에도 스타일 적용 함수
       function applyStyles(root) {
         injectStyle(root);
@@ -99,10 +103,10 @@
           }
         });
       }
-  
+
       // 초기 적용: 메인 문서에 적용
       applyStyles(document);
-  
+
       // MutationObserver: 동적으로 추가되는 요소(및 Shadow DOM)에도 스타일 적용
       const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
@@ -117,7 +121,7 @@
         });
       });
       observer.observe(document.body, { childList: true, subtree: true });
-  
+
       // setInterval: 0.5초마다 스타일 태그 존재 여부 확인 및 재삽입
       setInterval(() => {
         if (!document.getElementById(STYLE_ID)) {
@@ -125,27 +129,58 @@
         }
       }, 500);
     });
-  });
-  // 저장된 hideProfileImage 값에 따라 프로필 이미지 숨김 처리
-chrome.storage.sync.get("hideProfileImage", function(result) {
-  if (result.hideProfileImage) {
-    let style = document.getElementById("hideProfileImageStyle");
-    if (!style) {
-      style = document.createElement("style");
-      style.id = "hideProfileImageStyle";
-      style.textContent = `
-        a[href*="/ko/characters/"] img[alt="캐릭터 프로필 이미지"] {
-          display: none !important;
+    
+    // 커스텀 폰트 적용
+    chrome.storage.sync.get(["useCustomFont", "selectedFont", "selectedFontSize"], function(fontData) {
+      if (fontData.useCustomFont && fontData.selectedFont && fontData.selectedFont !== "none") {
+        const fontUrl = chrome.runtime.getURL("fonts/" + fontData.selectedFont);
+        let customFontStyle = document.getElementById("customFontStyle");
+        if (!customFontStyle) {
+          customFontStyle = document.createElement("style");
+          customFontStyle.id = "customFontStyle";
+          customFontStyle.innerHTML = `
+            @font-face {
+              font-family: 'MyCustomFont';
+              src: url(${fontUrl}) format('truetype');
+              font-weight: normal;
+              font-style: normal;
+            }
+            body, * {
+              font-family: 'MyCustomFont' !important;
+              font-size: ${fontData.selectedFontSize || 16}px !important;
+            }
+          `;
+          (document.head || document.documentElement).appendChild(customFontStyle);
         }
-      `;
-      (document.head || document.documentElement).appendChild(style);
-    }
-  } else {
-    let style = document.getElementById("hideProfileImageStyle");
-    if (style) {
-      style.remove();
-    }
-  }
-});
-
+      } else {
+        // custom font 사용 비활성 시 기존 custom font 스타일 제거
+        const oldStyle = document.getElementById("customFontStyle");
+        if (oldStyle) {
+          oldStyle.remove();
+        }
+      }
+    });
+  
+    // 저장된 hideProfileImage 값에 따라 프로필 이미지 숨김 처리
+    chrome.storage.sync.get("hideProfileImage", function(result) {
+      if (result.hideProfileImage) {
+        let style = document.getElementById("hideProfileImageStyle");
+        if (!style) {
+          style = document.createElement("style");
+          style.id = "hideProfileImageStyle";
+          style.textContent = `
+            a[href*="/ko/characters/"] img[alt="캐릭터 프로필 이미지"] {
+              display: none !important;
+            }
+          `;
+          (document.head || document.documentElement).appendChild(style);
+        }
+      } else {
+        let style = document.getElementById("hideProfileImageStyle");
+        if (style) {
+          style.remove();
+        }
+      }
+    });
+  });
 })();
