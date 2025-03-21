@@ -11,6 +11,7 @@ PC에서는 크로미움 브라우저들이면 대부분 잘 작동하며,
 ![단계 1](manual/step0.jpeg)
 ![단계 2](manual/step1.jpeg)
 ![단계 3](manual/step2.png)
+
 PC에서는 위 방법으로 설치할 수 있습니다. (Edge 기준)
 
 
@@ -21,24 +22,24 @@ PC에서는 위 방법으로 설치할 수 있습니다. (Edge 기준)
 ### 커스텀 스킨들
 미리 만들어 둔 스킨들이 몇 있습니다.
  - skin_cocoa.js - 카카오톡 느낌입니다.
-![미리보기](manual/cocoa.jpeg)
+<img alt="미리보기" src="manual/cocoa.jpeg" style="width:40%;">
  - skin_tele.js - 텔레그램 느낌입니다.
-![미리보기](manual/tele.jpeg)
+<img alt="미리보기" src="manual/tele.jpeg" style="width:40%;">
  - skin_cyber.js - 사이버펑크 느낌입니다.
-![미리보기](manual/cyber.jpeg)
+<img alt="미리보기" src="manual/cyber.jpeg" style="width:40%;">
  - skin_gpt.js - ChatGPT 다크 모드의 느낌입니다.
-![미리보기](manual/gpt.jpeg)
+<img alt="미리보기" src="manual/gpt.jpeg" style="width:40%;">
  - skin_harmony.js - 디스코드 느낌입니다.
-![미리보기](manual/discord.jpeg)
+<img alt="미리보기" src="manual/discord.jpeg" style="width:40%;">
  - skin_insta.js - 인스타 DM 느낌입니다.
-![미리보기](manual/insta.jpeg)
+<img alt="미리보기" src="manual/insta.jpeg" style="width:40%;">
  - skin_military.js - 육군이라면 어디선가 많이 본 무전기 느낌입니다.
-![미리보기](manual/mili.jpeg)
+<img alt="미리보기" src="manual/mili.jpeg" style="width:40%;">
  - skin_lovegame.js - 두근두근 문예부 느낌입니다.
-![미리보기](manual/doki.jpeg)
+<img alt="미리보기" src="manual/doki.jpeg" style="width:40%;">
  - skin_telnet.js - 클래식한 PC통신 느낌입니다.
-![미리보기](manual/telnet.jpeg)
+<img alt="미리보기" src="manual/telnet.jpeg" style="width:40%;">
  - skin_win98.js - Windows 98 느낌입니다.
-![미리보기](manual/98.jpeg)
+<img alt="미리보기" src="manual/98.jpeg" style="width:40%;">
  - skin_medieval.js - 중세풍 판타지 느낌입니다.
-![미리보기](manual/med.jpeg)
+<img alt="미리보기" src="manual/med.jpeg" style="width:40%;">
