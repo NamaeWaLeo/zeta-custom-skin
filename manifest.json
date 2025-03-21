@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "제타 커스텀 폰트 & 스킨",
+  "name": "제타(Zeta-ai) 커스텀 폰트 스킨 매니저",
   "version": "1.1",
-  "description": "제타 (zeta-ai.io) AI 채팅 웹페이지의 색상과 폰트를 변경합니다.",
+  "description": "제타 AI 채팅 플랫폼의 색상과 폰트를 변경합니다.",
   "background": {
     "service_worker": "background.js"
   },

@@ -1,7 +1,7 @@
 (function() {
     chrome.storage.sync.get(["selectedSkin", "selectedFontSize"], function(data) {
       // 선택된 스킨이 "skin_tel.js"가 아닐 경우 실행 중단
-      if (data.selectedSkin !== "skin_tel.js") {
+      if (data.selectedSkin !== "skin_tele.js") {
         return;
       }
     

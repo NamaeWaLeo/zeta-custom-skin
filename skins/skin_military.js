@@ -59,7 +59,7 @@
 
           /* 수신 메시지 (캐릭터): 밝은 카키 배경 + 빨간색 보더 */
           .rounded-r-xl.rounded-bl-xl.bg-gray-sub1 {
-            background-color: #A3966A !important; /* 밝은 카키 톤 */
+            background-color:rgb(112, 104, 77) !important; /* 밝은 카키 톤 */
             border: 2px solid #D8483E !important; /* 빨간색 보더 */
             border-radius: 8px !important;
             padding: 10px 14px !important;
