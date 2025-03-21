@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>설정 - 제타 커스텀 폰트</title>
+    <style>
+      body {
+        min-width: 300px;
+        font-family: Arial, sans-serif;
+        margin: 10px;
+      }
+      label {
+        display: block;
+        margin-top: 8px;
+      }
+      select, input[type="checkbox"] {
+        margin-top: 4px;
+      }
+      button {
+        margin-top: 12px;
+        padding: 6px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>설정</h2>
+    <label for="fontDropdown">폰트 파일 선택:</label>
+    <select id="fontDropdown">
+    </select>
+    
+    <label for="fontSizeDropdown">폰트 크기 (8 ~ 64):</label>
+    <select id="fontSizeDropdown"></select>
+    
+    <label>
+      <input type="checkbox" id="useCustomFont">
+      커스텀 폰트 사용
+    </label>
+    
+    <label for="skinDropdown">스킨 선택:</label>
+    <select id="skinDropdown">
+    </select>
+    
+    <label>
+      <input type="checkbox" id="useCustomSkin">
+      커스텀 스킨 사용
+    </label>
+    
+    <!-- 여기서 체크하면 프로필 이미지가 숨겨집니다 -->
+    <label>
+      <input type="checkbox" id="hideProfileImage">
+      캐릭터 프로필 이미지 숨기기
+    </label>
+    <p>커스텀 스킨 사용이 활성화 되어 있어야 작동합니다.</p>
+    
+    <button id="applyButton">적용</button>
+
+    <h3>베타 버전입니다.</h3>
+    <p>스킨을 변경한 후 채팅방에서 나오면 새로고침 해 주시기 바랍니다.</p>
+    
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "제타 커스텀 폰트 & 스킨",
+  "version": "1.1",
+  "description": "제타 (zeta-ai.io) AI 채팅 웹페이지의 색상과 폰트를 변경합니다.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://zeta-ai.io/ko/rooms/*"],
+      "exclude_matches": ["https://zeta-ai.io/ko/rooms"],
+      "js": [
+        "skins/skin_cocoa.js",
+        "skins/skin_harmony.js",
+        "skins/skin_gpt.js",
+        "skins/skin_insta.js",
+        "skins/skin_tele.js",
+        "skins/skin_cyber.js",
+        "skins/skin_medieval.js",
+        "skins/skin_win98.js",
+        "skins/skin_telnet.js",
+        "skins/skin_lovegame.js",
+        "skins/skin_military.js",
+        "skins/skin_gpt.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://zeta-ai.io/*"],
+      "js": ["options.js", "content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "scripting",
+    "webNavigation",
+    "storage",
+    "tabs"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["fonts/*", "skins/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
