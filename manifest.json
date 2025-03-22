@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "제타(Zeta-ai) 커스텀 폰트 스킨 매니저",
-  "version": "1.1",
-  "description": "제타 AI 채팅 플랫폼의 색상과 폰트를 변경합니다.",
+  "name": "제타(Zeta-ai) 커스텀 매니저",
+  "version": "1.2",
+  "description": "제타 AI 채팅 플랫폼의 스킨, 폰트 등 사용자 구성을 변경합니다.",
   "background": {
     "service_worker": "background.js"
   },
@@ -14,26 +14,26 @@
       "matches": ["https://zeta-ai.io/ko/rooms/*"],
       "exclude_matches": ["https://zeta-ai.io/ko/rooms"],
       "js": [
-        "skins/skin_cocoa.js",
         "skins/skin_harmony.js",
-        "skins/skin_gpt.js",
-        "skins/skin_insta.js",
         "skins/skin_tele.js",
         "skins/skin_cyber.js",
         "skins/skin_medieval.js",
         "skins/skin_win98.js",
         "skins/skin_telnet.js",
         "skins/skin_lovegame.js",
-        "skins/skin_military.js",
-        "skins/skin_gpt.js"
+        "skins/skin_military.js"
       ],
       "run_at": "document_idle",
       "all_frames": true
     },
     {
-      "matches": ["https://zeta-ai.io/*"],
-      "js": ["options.js", "content.js"],
-      "run_at": "document_start",
+      "matches": ["https://zeta-ai.io/ko/rooms/*"],
+      "js": [
+        "skins/skin_cocoa.js",
+        "skins/skin_gpt.js",
+        "skins/skin_insta.js"
+      ],
+      "run_at": "document_idle",
       "all_frames": true
     }
   ],
@@ -42,6 +42,9 @@
     "webNavigation",
     "storage",
     "tabs"
+  ],
+  "host_permissions": [
+    "https://zeta-ai.io/*"
   ],
   "web_accessible_resources": [
     {
